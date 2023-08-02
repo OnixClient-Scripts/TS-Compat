@@ -1,5 +1,5 @@
 {
-  "name": "onix-scripting-ts",
+  "name": "TS-Compat",
   "version": "1.0.0",
   "description": "Type definitions for Onix Scripting.",
   "scripts": {

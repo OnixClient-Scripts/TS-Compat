@@ -6,11 +6,11 @@
     "moduleResolution": "Node",
     "types": ["@typescript-to-lua/language-extensions"],
     "strict": true,
-    "rootDir": "./onix-scripting-ts/",
+    "rootDir": "./TS-Compat/",
     "outDir": "./",
     "removeComments": false,
   },
-  "include": ["./onix-scripting-ts/**/*.ts"],
+  "include": ["./TS-Compat/**/*.ts"],
   "exclude": ["node_modules"],
   "tstl": {
     "luaTarget": "5.4",
