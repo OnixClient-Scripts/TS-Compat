@@ -1,31 +1,46 @@
-# TypeScript type definitions for Onix Client scripting.
+# Onix Client Scripting TypeScript Type Definitions
 
-## Prerequisites:
+This repository contains TypeScript type definitions for Onix Client scripting. It allows developers to write scripts for Onix Client using TypeScript.
+
+⚠️ **Disclaimer: This project is not official. Some features may not work as expected, and there may be limited support.** ⚠️
+
+## Prerequisites
+Before using these type definitions, you need to have the following installed on your system:
+
 - Onix Client Scripting
-- [NodeJS](https://nodejs.org/en/download/current)
-### Optional:
+- [Node.js](https://nodejs.org/en/download/current)
+
+### Optional Tools
+While the following tools are optional, they can enhance your development experience:
+
 - [Git](https://git-scm.com/downloads)
-- Yarn (`npm install --global yarn`) (NPM Alternative)
+- Yarn (`npm install --global yarn`) (Alternative to NPM)
 
 ## Setup
-- Open your terminal inside of the Onix Client `Scripts` folder.
-- `git clone https://github.com/OnixClient-Scripts/TS-Compat`
-- `cd ts-compat`
-- `npm run setup` OR `yarn setup`
-- `cd ../`
-- `npm install` OR `yarn`
-- `cd ts-compat`
+To set up the TypeScript type definitions for Onix Client scripting, follow these steps:
 
-## Usage:
-- Make your scripts in their corresponding folders in `TS-Compat/`.
-- To build your scripts, run `npm run build` or `yarn build`.
+1. Open your terminal and navigate to the `Scripts` folder inside Onix Client.
+2. Clone this repository by running: `git clone https://github.com/OnixClient-Scripts/TS-Compat`
+3. Change into the cloned repository directory: `cd ts-compat`
+4. Install dependencies by running either `npm run setup` or `yarn setup`.
+5. Move back to the parent folder: `cd ../`
+6. Install the project's dependencies: `npm install` or `yarn`
 
-## Troubleshooting:
-### Scripts don't build:
-  - Make sure you've `cd`'d into the `TS-Compat` folder.
-### Other:
-  - Try deleting your `TS-Compat` folder and starting again from [Setup](https://github.com/OnixClient-Scripts/TS-Compat/blob/main/README.md#setup).
+## Usage
+To create your scripts using TypeScript, place them in their corresponding folders inside `TS-Compat/`. Once you've written your scripts, build them using the following command:
+```
+npm run build
+```
+or
+```
+yarn build
+```
 
-## TODO:
-- Make a script to automatically generate type definitions from the Autocomplete folder
-- Easier setup
+## Troubleshooting
+If you face other problems, consider deleting the `TS-Compat` folder and starting the setup process again. You can follow the [setup guide](https://github.com/OnixClient-Scripts/TS-Compat/blob/main/README.md#setup) for assistance.
+
+## TODO
+We have some improvements planned for this repository:
+
+- Create a script to automatically generate type definitions from the Autocomplete folder.
+- Simplify the setup process for an easier installation experience.
