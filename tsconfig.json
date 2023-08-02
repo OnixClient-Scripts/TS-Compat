@@ -4,7 +4,7 @@
     "target": "ESNext",
     "lib": ["ESNext"],
     "moduleResolution": "Node",
-    "types": ["@typescript-to-lua/language-extensions", ""],
+    "types": ["@typescript-to-lua/language-extensions"],
     "strict": true,
     "rootDir": "./onix-scripting-ts/",
     "outDir": "./",
@@ -16,6 +16,5 @@
     "luaTarget": "5.4",
     "noHeader": true,
     "luaLibImport": "inline",
-    "tstlVerbose": true,
   }
 }
