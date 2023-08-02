@@ -7,12 +7,6 @@ declare let name: string;
 declare let description: string;
 declare let renderEverywhere: boolean;
 
-declare let execute: (this: void, arguments: string) => void;
-
-// For commands
-declare let help_message: string;
-declare let command: string;
-
 declare let update: (this: void, deltaTime: number) => void;
 declare let render: (this: void, deltaTime: number) => void;
 declare let render2: (this: void, deltaTime: number) => void;
@@ -20,6 +14,14 @@ declare let render3d: (this: void, deltaTime: number) => void;
 declare let postInit: (this: void) => void;
 declare let onDisable: (this: void) => void;
 declare let onEnable: (this: void) => void;
+
+declare let onNetworkData: (this: void, code: string, identifier: string, data: string) => void;
+
+// For commands
+declare let help_message: string;
+declare let command: string;
+
+declare let execute: (this: void, arguments: string) => void;
 
 /**
  * Gets the text from the clipboard

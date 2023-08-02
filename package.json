@@ -1,9 +1,10 @@
 {
   "name": "onix-scripting-ts",
   "version": "1.0.0",
-  "description": "",
+  "description": "Type definitions for Onix Scripting.",
   "scripts": {
-    "build": "tstl"
+    "build": "tstl",
+    "setup": "move ./*.json ../"
   },
   "keywords": [],
   "author": "CreeperG16",
@@ -12,7 +13,9 @@
     "dist/**/*.d.ts"
   ],
   "types": "./dist/index.d.ts",
-  "dependencies": {
-    "@typescript-to-lua/language-extensions": "^1.0.0"
+  "devDependencies": {
+    "@typescript-to-lua/language-extensions": "^1.0.0",
+    "typescript": "^5.1.6",
+    "typescript-to-lua": "^1.17.0"
   }
 }
