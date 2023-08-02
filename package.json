@@ -4,7 +4,7 @@
   "description": "Type definitions for Onix Scripting.",
   "scripts": {
     "build": "tstl",
-    "setup": "move ./*.json ../ && move ../onix-scripting-ts ../ts-scripts"
+    "setup": "move ./*.json ../ && mkdir ./Modules && mkdir ./Commands && mkdir ./Libs"
   },
   "keywords": [],
   "author": "CreeperG16",
