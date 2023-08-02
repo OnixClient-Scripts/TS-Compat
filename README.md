@@ -24,7 +24,7 @@
 ### Scripts don't build:
   - Make sure you've `cd`'d into the `TS-Compat` folder.
 ### Other:
-  - Try deleting your `TS-Compat` folder and starting from 
+  - Try deleting your `TS-Compat` folder and starting again from [Setup](https://github.com/OnixClient-Scripts/TS-Compat/blob/main/README.md#setup).
 
 ## TODO:
 - Make a script to automatically generate type definitions from the Autocomplete folder
