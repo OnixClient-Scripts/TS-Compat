@@ -6,7 +6,7 @@
     "moduleResolution": "Node",
     "types": ["@typescript-to-lua/language-extensions", ""],
     "strict": true,
-    "rootDir": "./ts-scripts/",
+    "rootDir": "./onix-scripting-ts/",
     "outDir": "./",
     "removeComments": false,
   },
