@@ -28,13 +28,20 @@ To set up the TypeScript type definitions for Onix Client scripting, follow thes
 
 ## Usage
 To create your scripts using TypeScript, place them in their corresponding folders inside `TS-Compat/`. Once you've written your scripts, build them using the following command:
-```
+```bash
 npm run build
 ```
 or
-```
+```bash
 yarn build
 ```
+
+## Updating
+To stay up to date with the type definitions on the repo, you need to refetch the repo when there's an update. This is easy if you've got git installed:
+```bash
+git pull
+```
+But you can also just redownload and reextract the repository's folder, and move your Typescript source files into the new folder.
 
 ## Troubleshooting
 If you face other problems, consider deleting the `TS-Compat` folder and starting the setup process again. You can follow the [setup guide](https://github.com/OnixClient-Scripts/TS-Compat/blob/main/README.md#setup) for assistance.
