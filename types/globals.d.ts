@@ -22,7 +22,7 @@ declare let postInit: (this: void) => void;
 declare let onDisable: (this: void) => void;
 declare let onEnable: (this: void) => void;
 
-declare let onNetworkData: (this: void, code: string, identifier: string, data: string) => void;
+declare let onNetworkData: (this: void, code: number, identifier: string, data: string) => void;
 
 // For commands
 declare let help_message: string;
