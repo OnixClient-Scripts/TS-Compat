@@ -144,3 +144,24 @@ declare function Nbt(this: void, tbl: { [key: string | number]: any } | any[]): 
  * @returns {Item} item
  */
 declare function itemFromNbt(this: void, ItemNBT: { [key: string | number]: any } | any[]): Item;
+
+/**
+ * Returns the translated message/text (for minecraft)
+ * @param {string} translationKey The key to translate (you can check in vanilla text files ex: gui.yes)
+ * @returns {string} translated The translated string or the translation key
+ */
+declare function getTranslatedMessage(this: void, translationKey: string): string;
+/**
+ * Returns the translated message/text (for minecraft)
+ * @param {string} translationKey The key to translate (you can check in vanilla text files ex: gui.yes)
+ * @returns {string[]} params The params the key takes (like a name or number things like that)
+ * @returns {string} translated The translated string or the translation key
+*/
+declare function getTranslatedMessage(this: void, translationKey: string, params: string[]): string;
+
+/**
+ * Plays a sound file
+ * @param {string} path The path to the audio file
+ * @returns {void}
+*/
+declare function playCustomSound(this: void, path: string): void;
