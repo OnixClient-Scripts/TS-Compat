@@ -16,7 +16,7 @@ While the following tools are optional, they can enhance your development experi
 
 - [Git](https://git-scm.com/downloads)
 - Yarn (`npm install --global yarn`) (Alternative to NPM)
-
+---
 ## Setup
 To set up the TypeScript type definitions for Onix Client scripting, follow these steps:
 
@@ -26,7 +26,7 @@ To set up the TypeScript type definitions for Onix Client scripting, follow thes
 4. Install dependencies by running either `npm run setup` or `yarn setup`.
 5. Move back to the parent folder: `cd ../`
 6. Install the project's dependencies: `npm install` or `yarn`
-
+---
 ## Usage
 To create your scripts using TypeScript, place them in their corresponding folders inside `TS-Compat/`. Once you've written your scripts, build them using the following command:
 ```bash
@@ -36,18 +36,18 @@ or
 ```bash
 yarn build
 ```
-
+---
 ## Updating
-To stay up to date with the type definitions on the repo, you need to refetch the repo when there's an update. This is easy if you've got git installed:
+To stay up to date with the type definitions on the repo, you need to refetch the repo when there's an update. This is easy if you've got [Git](https://git-scm.com/downloads) installed:
 ```bash
 cd TS-Compat
 git pull
 ```
-But you can also just redownload and reextract the repository's folder, and move your Typescript source files into the new folder.
-
+- You can also simply redownload and re-extract the repository's folder and move your TypeScript source files into the new folder.
+---
 ## Troubleshooting
-If you face other problems, consider deleting the `TS-Compat` folder and starting the setup process again. You can follow the [setup guide](https://github.com/OnixClient-Scripts/TS-Compat/blob/main/README.md#setup) for assistance.
-
+- If you face other problems, consider deleting the `TS-Compat` folder and starting the setup process again. You can follow the [setup guide](https://github.com/OnixClient-Scripts/TS-Compat/blob/main/README.md#setup) for assistance.
+---
 ## TODO
 We have some improvements planned for this repository:
 
