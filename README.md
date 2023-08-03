@@ -39,6 +39,7 @@ yarn build
 ## Updating
 To stay up to date with the type definitions on the repo, you need to refetch the repo when there's an update. This is easy if you've got git installed:
 ```bash
+cd TS-Compat
 git pull
 ```
 But you can also just redownload and reextract the repository's folder, and move your Typescript source files into the new folder.
