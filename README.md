@@ -3,7 +3,7 @@
 This repository contains TypeScript type definitions for Onix Client scripting. It allows developers to write scripts for Onix Client using TypeScript.
 Using [typescript-to-lua](https://typescripttolua.github.io/docs/), scripts written in TypeScript can be transpiled to Lua to then be run by Onix Client. This means some JS/TS features might not work the same or not even exist!
 
-⚠️ **Disclaimer: This project is not official. It is EXPERIMENTAL! Some features may not work as expected!** ⚠️
+⚠️ **Disclaimer: This project is EXPERIMENTAL! Some features may not work as expected!** ⚠️
 
 ## Prerequisites
 Before using these type definitions, you need to have the following installed on your system:
