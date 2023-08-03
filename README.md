@@ -20,7 +20,7 @@ While the following tools are optional, they can enhance your development experi
 ## Setup
 To set up the TypeScript type definitions for Onix Client scripting, follow these steps:
 
-1. Open your terminal and navigate to the `Scripts` folder inside Onix Client. (`%localappdata%\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\RoamingState\OnixClient`)
+1. Open your terminal and navigate to the `Scripts` folder inside the Onix Client folder.
 2. Clone this repository by running: `git clone https://github.com/OnixClient-Scripts/TS-Compat` (If you haven't got git installed, just download and extract the zip from the GitHub repository.)
 3. Change into the cloned repository directory: `cd TS-Compat`
 4. Install dependencies by running either `npm run setup` or `yarn setup`.
