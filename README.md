@@ -20,7 +20,7 @@ While the following tools are optional, they can enhance your development experi
 To set up the TypeScript type definitions for Onix Client scripting, follow these steps:
 
 1. Open your terminal and navigate to the `Scripts` folder inside Onix Client.
-2. Clone this repository by running: `git clone https://github.com/OnixClient-Scripts/TS-Compat`
+2. Clone this repository by running: `git clone https://github.com/OnixClient-Scripts/TS-Compat` (Or if you haven't got git installed, just download and extract the zip from the github website)
 3. Change into the cloned repository directory: `cd ts-compat`
 4. Install dependencies by running either `npm run setup` or `yarn setup`.
 5. Move back to the parent folder: `cd ../`
