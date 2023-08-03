@@ -1,6 +1,13 @@
 declare type table = { [key: string | number]: any } | any[];
 
-declare function print(this: void, ...args: any[]): void;
+//declare function print(this: void, ...args: any[]): void;
+
+/** @noSelf */
+declare namespace console {
+  function log(...args: any[]): void;
+  function warn(...args: any[]): void;
+  function error(...args: any[]): void;
+}
 
 // For modules
 declare let name: string;

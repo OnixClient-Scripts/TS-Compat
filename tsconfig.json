@@ -11,10 +11,11 @@
     "removeComments": false,
   },
   "include": ["./TS-Compat/**/*.ts"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "./TS-Compat/**/*.plugin.ts"],
   "tstl": {
     "luaTarget": "5.4",
     "noHeader": true,
     "luaLibImport": "inline",
+    "luaPlugins": [{ "name": "./TS-Compat/tstl-onix.plugin.ts" }]
   }
 }
