@@ -2,7 +2,7 @@
 
 This repository contains TypeScript type definitions for Onix Client scripting. It allows developers to write scripts for Onix Client using TypeScript.
 
-⚠️ **Disclaimer: This project is not official. Some features may not work as expected, and there may be limited support.** ⚠️
+⚠️ **Disclaimer: This project is not official. It is EXPERIMENTAL! Some features may not work as expected!** ⚠️
 
 ## Prerequisites
 Before using these type definitions, you need to have the following installed on your system:
