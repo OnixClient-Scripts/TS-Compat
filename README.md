@@ -16,6 +16,8 @@ While the following tools are optional, they can enhance your development experi
 
 - [Git](https://git-scm.com/downloads)
 - Yarn (`npm install --global yarn`) (Alternative to NPM)
+- [TypeScriptToLua VSCode extension](https://marketplace.visualstudio.com/items?itemName=typescript-to-lua.vscode-typescript-to-lua)
+
 ---
 ## Setup
 To set up the TypeScript type definitions for Onix Client scripting, follow these steps:
