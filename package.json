@@ -1,11 +1,11 @@
 {
-  "name": "TS-Compat",
+  "name": "ts-compat",
   "version": "1.0.0",
   "description": "Type definitions for Onix Scripting.",
   "scripts": {
     "build": "tstl",
     "setup": "move ./*.json ../ && mkdir .\\Modules && mkdir .\\Commands && mkdir .\\Libs",
-    "update": "cd ./TS-Compat && git pull && cd .."
+    "update": "cd ./TS-Compat && git pull && move ./*.json ../ && cd .."
   },
   "keywords": [],
   "author": "CreeperG16",
