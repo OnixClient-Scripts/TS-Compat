@@ -6,7 +6,7 @@ This repository contains TypeScript type definitions for Onix Client scripting. 
 *This project uses [typescript-to-lua](https://typescripttolua.github.io/docs/). Scripts written in TypeScript can be transpiled to Lua, which can then be run in Onix Client. Some JS/TS functions/features may behave differently to Lua equivalents, or may not even exist, hence why this is experimental.*
 
 ## Prerequisites
-Before using these type definitions, you need to have the following installed on your system:
+Before using this, you need to have the following installed on your system:
 
 - Onix Client Scripting
 - [Node.js](https://nodejs.org/en/download/current)
@@ -20,7 +20,7 @@ While the following tools are optional, they can enhance your development experi
 ## Setup
 To set up the TypeScript type definitions for Onix Client scripting, follow these steps:
 
-1. Open your terminal and navigate to the `Scripts` folder inside Onix Client.
+1. Open your terminal and navigate to the `Scripts` folder inside the Onix Client folder.
 2. Clone this repository by running: `git clone https://github.com/OnixClient-Scripts/TS-Compat` (If you haven't got git installed, just download and extract the zip from the GitHub repository.)
 3. Change into the cloned repository directory: `cd TS-Compat`
 4. Install dependencies by running either `npm run setup` or `yarn setup`.
