@@ -120,7 +120,7 @@ declare namespace table {
  * @param {string} name The name of the item (the one you would use in .give)
  * @returns {Item} | nil
  */
-declare function getItem(this: void, name: string): Item | void;
+declare function getItem(this: void, name: string): player.Item | void;
 
 /**
  * Gets the nbt of an item from its location (item.location)
@@ -142,7 +142,7 @@ declare function Nbt(this: void, tbl: { [key: string | number]: any } | any[]): 
  * @param {table} ItemNBT The nbt tag
  * @returns {Item} item
  */
-declare function itemFromNbt(this: void, ItemNBT: { [key: string | number]: any } | any[]): Item;
+declare function itemFromNbt(this: void, ItemNBT: { [key: string | number]: any } | any[]): player.Item;
 
 /**
  * Returns the translated message/text (for minecraft)
