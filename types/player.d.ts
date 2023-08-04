@@ -293,20 +293,20 @@ declare namespace player {
   function effects(): Effect[];
 
   interface AttributeNames {
-    [2]: "minecraft:player.hunger";
-    [3]: "minecraft:player.saturation";
-    [4]: "minecraft:player.exhaustion";
-    [5]: "minecraft:player.level";
-    [6]: "minecraft:player.experience";
-    [7]: "minecraft:health";
-    [8]: "minecraft:follow_range";
-    [9]: "minecraft:knockback_resistance";
-    [10]: "minecraft:movement";
-    [11]: "minecraft:underwater_movement";
-    [12]: "minecraft:lava_movement";
-    [13]: "minecraft:attack_damage";
-    [14]: "minecraft:absorption";
-    [15]: "minecraft:luck";
+    [1]: "minecraft:player.hunger";
+    [2]: "minecraft:player.saturation";
+    [3]: "minecraft:player.exhaustion";
+    [4]: "minecraft:player.level";
+    [5]: "minecraft:player.experience";
+    [6]: "minecraft:health";
+    [7]: "minecraft:follow_range";
+    [8]: "minecraft:knockback_resistance";
+    [9]: "minecraft:movement";
+    [10]: "minecraft:underwater_movement";
+    [11]: "minecraft:lava_movement";
+    [12]: "minecraft:attack_damage";
+    [13]: "minecraft:absorption";
+    [14]: "minecraft:luck";
   }
 
   /**
@@ -343,20 +343,20 @@ declare namespace player {
     /**
      * Gets the attribute with its id or nil
      * Attribute ids
-     * 2: Hunger
-     * 3: Saturation
-     * 4: Exhaustion
-     * 5: Level
-     * 6: Experience
-     * 7: Health
-     * 8: Follow Range
-     * 9: Knockback Resistance
-     * 10: Movement Speed
-     * 11: Underwater Speed
-     * 12: Lava Speed
-     * 13: Attack Damage
-     * 14: Absorption
-     * 15: Luck
+     * 1: Hunger
+     * 2: Saturation
+     * 3: Exhaustion
+     * 4: Level
+     * 5: Experience
+     * 6: Health
+     * 7: Follow Range
+     * 8: Knockback Resistance
+     * 9: Movement Speed
+     * 10: Underwater Speed
+     * 11: Lava Speed
+     * 12: Attack Damage
+     * 13: Absorption
+     * 14: Luck
      * @param {number} attribute_id The attribute id
      * @returns {Attribute|nil} attribute Probably the attribute, but it could be nil.
      */

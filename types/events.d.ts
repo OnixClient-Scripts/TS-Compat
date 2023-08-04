@@ -43,7 +43,7 @@ declare namespace event {
    * ```
    * 
    * This will be called everytime a chat message is added to the chat
-   * The username will most likely only be filled for wisper/chat message
+   * The username will most likely only be filled for whisper/chat message
    * Here are the types of messages
    * - 0 == Raw
    * - 1 == Chat

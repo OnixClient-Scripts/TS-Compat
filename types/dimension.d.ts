@@ -38,6 +38,16 @@ declare class Biome {
 }
 
 /**
+ * @class BiomeColorData
+ * @field grass ColorSetting The color of the grass
+ * @field water ColorSetting The color of the water 
+ */
+declare class BiomeColorData {
+  public grass: ColorSetting;
+  public water: ColorSetting;
+}
+
+/**
  * @class RaycastInfo
  * @field x integer The x position of the hit block
  * @field y integer The y position of the hit block
@@ -113,6 +123,57 @@ declare namespace dimension {
   //-@param z integer | number The z position
   //-@return Block block The block information
   function getBlock(x: number, y: number, z: number): Block;
+
+
+  /**
+   * Finds a block among the world 
+   * local positons = result[1] change the 1 to whatever index you wish to use! you can use the # operator to get the size (#result)
+   * @param name string The name of the block
+   * @return integer[][] blockPositions The block information
+   */
+  function findBlock(name: string): number[][];
+
+  /**
+   * Finds a block among the world 
+   * local positons = result[1] change the 1 to whatever index you wish to use! you can use the # operator to get the size (#result)
+   * @param name string The name of the block
+   * @param blockData integer | number The data of the block
+   * @return integer[][] blockPositions The block information
+   */
+  function findBlock(name: string, blockData: number): number[][];
+
+  /**
+   * Finds a block among the world 
+   * local positons = result[1] change the 1 to whatever index you wish to use! you can use the # operator to get the size (#result)
+   * @param name string The name of the block
+   * @param blockData integer | number The data of the block
+   * @param radius integer | number The radius to search in (will be chunk aligned to then center of the chunk
+   * @return integer[][] blockPositions The block information
+   */
+  function findBlock(name: string, blockData: number, radius: number): number[][];
+
+  /**
+   * Finds a block among the world 
+   * local positons = result[1] change the 1 to whatever index you wish to use! you can use the # operator to get the size (#result)
+   * @param name string The name of the block
+   * @param blockData integer | number The data of the block
+   * @param radius integer | number The radius to search in (will be chunk aligned to then center of the chunk
+   * @param x integer | number The x center position
+   * @param y integer | number The y center position
+   * @param z integer | number The z center position
+   * @return integer[][] blockPositions The block information
+   */
+  function findBlock(name: string, blockData: number, radius: number, x: number, y: number, z: number): number[][] 
+
+  /**
+   * Finds a block among the world 
+   * local x,y,z = result[1] change the 1 to whatever index you wish to use! you can use the # operator to get the size (#result)
+   * @param x integer | number The x center position
+   * @param y integer | number The y center position
+   * @param z integer | number The z center position
+   * @return BiomeColorData colorData The color of the water and grass at this x,z
+  */
+  function getBiomeColor(x: number, y: number, z: number): BiomeColorData;
 
   //-Gets the block at these coordinates
   //-@param x integer | number The x position

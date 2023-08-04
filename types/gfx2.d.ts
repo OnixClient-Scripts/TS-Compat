@@ -44,6 +44,19 @@ declare namespace gfx2 {
   function fillRect(x: number, y: number, width: number, height: number): void;
 
   /**
+   * Fills a blurred potentially rounded rectangle
+   * Note that if the user disabled blur module background this will not blur anything.
+   * @param {number} x Position on the X axis
+   * @param {number} y Position on the Y axis
+   * @param {number} width Width of the rectangle
+   * @param {number} height Height of the rectangle
+   * @param {number} opacity The opacity of the blurred rectangle
+   * @param {number} roundedCornerRadius The radius of the corners if you want a rounded corner blur
+   * @return {boolean} blurred If the area was blurred or not
+   */
+  function blur(x: number, y: number, width: number, height: number, opacity: number, roundedCornerRadius: number): boolean;
+
+  /**
    * Draws a rectangle (outline)
    * @param {number} x Position on the X axis
    * @param {number} y Position on the Y axis
