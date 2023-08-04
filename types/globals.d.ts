@@ -1,7 +1,5 @@
 declare type table = { [key: string | number]: any } | any[];
 
-//declare function print(this: void, ...args: any[]): void;
-
 /** @noSelf */
 declare namespace console {
   function log(...args: any[]): void;
@@ -12,6 +10,7 @@ declare namespace console {
 // For modules
 declare let name: string;
 declare let description: string;
+/** If this is true, you can render graphics using gfx or gfx2 everywhere. This means inside the inventory, in the pause menu, etc. */
 declare let renderEverywhere: boolean;
 
 declare let update: (this: void, deltaTime: number) => void;
