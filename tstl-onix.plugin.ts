@@ -35,6 +35,8 @@ local console = {
 const plugin: tstl.Plugin = {
   beforeEmit(program: ts.Program, options: tstl.CompilerOptions, emitHost: tstl.EmitHost, result: tstl.EmitFile[]) {
     for (const file of result) {
+      file.code = "-- This script was originally written in TypeScript.\n" + file.code;
+
       const matchConsole = file.code.match(/console/g)
       if (!matchConsole) continue;
 
