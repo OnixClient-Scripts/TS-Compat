@@ -28,12 +28,14 @@ function toggleScriptsOff() {
 }
 
 event.listen("KeyboardInput", (key, state) => {
-    if (key === openKey.value && state === true) {
-        toggleScriptsOn();
-    } else {
-        toggleScriptsOff();
-    }
-    if (key === 0x09 && state === true) {
-        toggleScriptsOff();
+    if (!gui.mouseGrabbed()) {
+        if (key === openKey.value && state === true) {
+            toggleScriptsOn();
+        } else {
+            toggleScriptsOff();
+        }
+        if (key === 0x09 && state === true) {
+            toggleScriptsOff();
+        }
     }
 });
