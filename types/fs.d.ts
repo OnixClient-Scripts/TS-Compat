@@ -3,6 +3,7 @@
 //@class fs
 //fs = {}
 
+/** @noSelf */
 declare namespace fs {
   //Checks if a file exist
   //@param path string The path from Scripts/Data
