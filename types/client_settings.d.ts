@@ -69,7 +69,7 @@ declare namespace client {
      * @param buttonName string The text on the UI button
      * @returns The setting that was added
      */
-    function addFunction(name: string, variableName: string, buttonName: number): Setting;
+    function addFunction(name: string, variableName: string, buttonName: string): Setting;
 
     /**
      * Adds a textbox in the UI
