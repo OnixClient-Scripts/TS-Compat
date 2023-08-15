@@ -64,5 +64,5 @@ git pull
 ## TODO
 We have some improvements planned for this repository:
 
-- Create a script to automatically generate type definitions from the Autocomplete folder.
+- Improve the type definitions for built-in functions, and make them easier to maintain and update.
 - Simplify the setup process for an easier installation experience.
