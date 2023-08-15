@@ -54,6 +54,7 @@ git pull
 
 ### Does *x* JavaScript/TypeScript feature work?
 *Most features from vanilla JS/TS or Node.JS **Don't work**. Basic things like Array.map()/filter()/reduce(), string.split(), and arrow functions work fine. Some things, like asynchronous programming (promises) are unpredictable and may not work as expected. `async`/`await` syntax doesn't work at all.*
+<br>
 *Importing things from other files also doesn't work with `import x from "x"` syntax, and using `import`/`export` may break your code. If you need to import code from another file, make a lib for that code, and use `importLib()`.*
 
 ### Can I upload a script I made in TS to the repo?
