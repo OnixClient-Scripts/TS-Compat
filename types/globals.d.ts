@@ -149,7 +149,7 @@ declare function itemFromNbt(this: void, ItemNBT: { [key: string | number]: any 
  * @param translationKey string The key to translate (you can check in vanilla text files ex: gui.yes)
  * @return string translated The translated string or the translation key
  */
-declare function getTranslatedMessage(translationKey: string): string;
+declare function getTranslatedMessage(this: void, translationKey: string): string;
 
 /**
  * Returns the translated message/text (for minecraft)
@@ -157,10 +157,10 @@ declare function getTranslatedMessage(translationKey: string): string;
  * @param params string[] The params the key takes (like a name or number things like that)
  * @return string translated The translated string or the translation key
  */
-declare function getTranslatedMessage(translationKey: string, params: string[]): string;
+declare function getTranslatedMessage(this: void, translationKey: string, params: string[]): string;
 
 /**
  * Plays a sound file
  * @param path string The path to the audio file
  */
-declare function playCustomSound(path: string): void;
+declare function playCustomSound(this: void, path: string): void;
