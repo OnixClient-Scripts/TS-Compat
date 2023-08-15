@@ -50,6 +50,15 @@ git pull
 ## Troubleshooting
 - If you face other problems, consider deleting the `TS-Compat` folder and starting the setup process again. You can follow the [setup guide](https://github.com/OnixClient-Scripts/TS-Compat/blob/main/README.md#setup) for assistance.
 ---
+## FAQ
+
+### Does *x* JavaScript/TypeScript feature work?
+*Most features from vanilla JS/TS or Node.JS **Don't work**. Basic things like Array.map()/filter()/reduce(), string.split(), and arrow functions work fine. Some things, like asynchronous programming (promises) are unpredictable and may not work as expected. `async`/`await` syntax doesn't work at all.*
+
+### Can I upload a script I made in TS to the repo?
+*Yes, just PR the source (TS file) to this repo, and the output lua file to the [main repo](https://github.com/OnixClient-Scripts/OnixClient_Scripts/).*
+
+---
 ## TODO
 We have some improvements planned for this repository:
 
