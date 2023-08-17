@@ -3,7 +3,7 @@
 This repository contains TypeScript type definitions for Onix Client scripting. It allows developers to write scripts for Onix Client using TypeScript.<br>
 
 ⚠️ **Disclaimer: This project is EXPERIMENTAL! Some features may not work as expected!** ⚠️<br>
-*This project uses [typescript-to-lua](https://typescripttolua.github.io/docs/). Scripts written in TypeScript can be transpiled to Lua, which can then be run in Onix Client. Some JS/TS functions/features may behave differently to Lua equivalents, or may not even exist, hence why this is experimental.*
+*This project uses [typescript-to-lua](https://typescripttolua.github.io/docs/). Scripts written in TypeScript can be transpiled to Lua, which can then be run in Onix Client. Some JS/TS functions/features may behave differently to Lua equivalents, or may not even exist, hence why this is experimental. **Async programming is especially unpredictable.***
 
 ## Prerequisites
 Before using this, you need to have the following installed on your system:
@@ -50,8 +50,19 @@ git pull
 ## Troubleshooting
 - If you face other problems, consider deleting the `TS-Compat` folder and starting the setup process again. You can follow the [setup guide](https://github.com/OnixClient-Scripts/TS-Compat/blob/main/README.md#setup) for assistance.
 ---
+## FAQ
+
+### Does *x* JavaScript/TypeScript feature work?
+*Most features from vanilla JS/TS or Node.JS **Don't work**. Basic things like Array.map()/filter()/reduce(), string.split(), and arrow functions work fine. Some things, like asynchronous programming (promises) are unpredictable and may not work as expected. `async`/`await` syntax doesn't work at all.*
+<br>
+*Importing things from other files also doesn't work with `import x from "x"` syntax, and using `import`/`export` may break your code. If you need to import code from another file, make a lib for that code, and use `importLib()`.*
+
+### Can I upload a script I made in TS to the repo?
+*Yes, just PR the source (TS file) to this repo, and the output lua file to the [main repo](https://github.com/OnixClient-Scripts/OnixClient_Scripts/).*
+
+---
 ## TODO
 We have some improvements planned for this repository:
 
-- Create a script to automatically generate type definitions from the Autocomplete folder.
+- Improve the type definitions for built-in functions, and make them easier to maintain and update.
 - Simplify the setup process for an easier installation experience.
