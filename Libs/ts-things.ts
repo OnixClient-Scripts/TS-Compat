@@ -2,6 +2,7 @@
 // make sure to importLib("ts-things") when using things from this lib.
 // I will try to keep adding more things that are missing from TS-Compat but are available in JS/TS.
 
+// Fetch function
 const networkListeners = new Map<string, (code: keyof typeof curlErrorCodes, data: string) => void>();
 
 importLib("curl-error-codes");
@@ -67,7 +68,10 @@ function fetch(this: void, url: string, options?: FetchOptions): Promise<string>
   return promise;
 }
 
-onNetworkData = (code, id, data) => {
+/**
+ * Call this in `onNetworkData` to handle fetch requests.
+ */
+const fetchNetworkData: typeof onNetworkData = (code, id, data) => {
   const listener = networkListeners.get(id);
   if (!listener) return;
   listener(code as keyof typeof curlErrorCodes, data);
