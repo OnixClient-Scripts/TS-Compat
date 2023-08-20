@@ -7,32 +7,18 @@
 declare namespace gfx2 {
   /**
    * Changes the color of what will be rendered
-   * @param {Setting} setting client color(pls or u crash) setting
+   * @param {Setting | ColorProperties} setting client color(pls or u crash) setting
    */
-  function color(setting: Setting): void;
-
-  /**
-   * Changes the color of what will be rendered
-   * @param {ColorSetting} colorTable
-   */
-  function color(colorTable: ColorSetting): void;
+  function color(setting: Setting | ColorProperties): void;
 
   /**
    * Changes the color of what will be rendered
    * @param {number} r 0-255 color code
    * @param {number} g 0-255 color code
    * @param {number} b 0-255 color code
+   * @param {number?} a 0-255 color code
    */
-  function color(r: number, g: number, b: number): void;
-
-  /**
-   * Changes the color of what will be rendered
-   * @param {number} r 0-255 color code
-   * @param {number} g 0-255 color code
-   * @param {number} b 0-255 color code
-   * @param {number} a 0-255 color code
-   */
-  function color(r: number, g: number, b: number, a: number): void;
+  function color(r: number, g: number, b: number, a?: number): void;
 
   /**
    * Fills a rectangle
@@ -193,28 +179,19 @@ declare namespace gfx2 {
   /**
    * Gets the size of text on (Can be used outside of render2)
    * @param {string} text The text to measure
-   * @param {number} scale the scale(size) of the text
-   * @returns {number} width
-   * @returns {number} height
+   * @param {number?} scale the scale(size) of the text
+   * @returns {LuaMultiReturn<[number, number]>} width, height
    */
-  function textSize(text: string, scale: number): number;
-
-  /**
-   * Gets the size of text (Can be used outside of render2)
-   * @param {string} text The text to measure
-   * @returns {number} width
-   * @returns {number} height
-   */
-  function textSize(text: string): number;
+  function textSize(text: string, scale?: number): LuaMultiReturn<[number, number]>;
 
   /**
    * @class Gfx2Texture
    * @field width number The width of the texture
    * @field height number The height of the texture
    */
-  class Gfx2Texture {
-    public width: number;
-    public height: number;
+  interface Gfx2Texture {
+    readonly width: number;
+    readonly height: number;
 
     //local _acp__Gfx2Texture_ = {}
 
@@ -222,9 +199,9 @@ declare namespace gfx2 {
      * Gets the color of a pixel in the texture
      * @param {number} x X position of the pixel to get
      * @param {number} y Y position of the pixel to get
-     * @returns {iColor color The color of the} pixel
+     * @returns {iColor} The color of the pixel
      */
-    public getPixel(x: number, y: number): void;
+    getPixel(x: number, y: number): unknown;
 
     /**
      * Sets the color of a pixel in the texture, you must unload if you used it for changes to apply
@@ -235,7 +212,7 @@ declare namespace gfx2 {
      * @param {number} b new blue color value (0-255)
      * @diagnostic disable-next-line: duplicate-set-field
      */
-    public setPixel(x: number, y: number, r: number, g: number, b: number): void;
+    setPixel(x: number, y: number, r: number, g: number, b: number): void;
 
     /**
      * Sets the color of a pixel in the texture, you must unload if you used it for changes to apply
@@ -247,19 +224,19 @@ declare namespace gfx2 {
      * @param {number} a new alpha value (0-255)
      * @diagnostic disable-next-line: duplicate-set-field
      */
-    public setPixel(x: number, y: number, r: number, g: number, b: number, a: number): void;
+    setPixel(x: number, y: number, r: number, g: number, b: number, a: number): void;
 
     /**
      * Saves the texture to a png file (for if you wana draw to it using setPixel)
      * @param {string} path Where to save this
      * @returns {boolean} saved Did the texture successfully save
      */
-    public save(path: string): void;
+    save(path: string): boolean;
 
     /**
      * Unloads the texture when you no longer need it or to reload its content
      */
-    public unload(): void;
+    unload(): void;
   }
 
   /**
