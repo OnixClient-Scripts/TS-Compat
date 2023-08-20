@@ -211,7 +211,6 @@ declare type Setting =
   | AirSetting
   | BoolSetting
   | CategorySetting
-  | ColorProperties
   | EnumSetting
   | FloatSetting
   | FunctionSetting
