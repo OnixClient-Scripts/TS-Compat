@@ -194,6 +194,7 @@ declare interface FunctionSetting {
   name: string;
   saveName: string;
   visible: boolean;
+  parent: Module | VisualModule | ScriptingModule;
 }
 declare interface InfoSetting extends BaseSetting<string, 101> {
   scale: number;
