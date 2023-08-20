@@ -1,3 +1,6 @@
+/**
+ * Made by Tom (aka Jerry)
+ */
 name = "Stopwatch";
 description = "A simple stopwatch for timing things.";
 
