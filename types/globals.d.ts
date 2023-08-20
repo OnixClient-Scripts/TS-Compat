@@ -89,7 +89,7 @@ declare function sendLocalData(this: void, uuid: string, data: string): void;
  * @param {string} Command The text after .  ex: .lol would be "lol"
  * @param {(arguments: string) => void} OnExecuted declare function to execute when the command is executed, same as the command files
  */
-declare function registerCommand(this: void, Command: string, OnExecuted: (arguments: string) => void): void;
+declare function registerCommand(this: void, Command: string, OnExecuted: (this: void, arguments: string) => void): void;
 
 declare namespace string {
   /**
