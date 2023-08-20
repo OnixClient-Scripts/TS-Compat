@@ -4,13 +4,19 @@
 name = "Stopwatch";
 description = "A simple stopwatch for timing things.";
 
+positionX = 0;
+positionY = 0;
+sizeX = 0;
+sizeY = 0;
+
 const modSettings = {
   startKey: client.settings.addNamelessKeybind("Start", 0),
   stopKey: client.settings.addNamelessKeybind("Pause/Stop", 0),
   resetKey: client.settings.addNamelessKeybind("Reset", 0),
   showNotifs: client.settings.addNamelessBool("Show notifications", true),
-  bgColour: client.settings.addNamelessColor("Background colour", [128, 128, 128]),
+  bgColour: client.settings.addNamelessColor("Background colour", [0, 0, 0, 0.5]),
   textColour: client.settings.addNamelessColor("Text colour", [255, 255, 255]),
+  bgPadding: client.settings.addNamelessInt("Padding", 0, 20, 2),
 };
 
 let timerRunning = false;
@@ -21,15 +27,21 @@ event.listen("KeyboardInput", (key, down) => {
   if (gui.screen() !== "hud_screen") return;
 
   if (key === modSettings.startKey.value && down) {
+    if (timerRunning) return;
+
     timerRunning = true;
     if (modSettings.showNotifs.value) client.notification("Stopwatch started.");
     return true;
   }
+
   if (key === modSettings.stopKey.value && down) {
+    if (!timerRunning) return;
+
     timerRunning = false;
     if (modSettings.showNotifs.value) client.notification("Stopwatch paused.");
     return true;
   }
+
   if (key === modSettings.resetKey.value && down) {
     currentTime = 0;
     timerStartedAt = os.clock();
@@ -53,8 +65,16 @@ const timerText = (time: number) => {
 render2 = () => {
   if (timerRunning) currentTime = os.clock() - timerStartedAt;
   else timerStartedAt = os.clock() - currentTime;
-  gfx2.color(modSettings.bgColour);
-  gfx2.drawRect(0, 0, 20, 20, 0);
-  gfx2.color(modSettings.textColour);
-  gfx2.text(0, 0, timerText(currentTime));
+
+  const pad = modSettings.bgPadding.value;
+  const text = timerText(currentTime);
+  [sizeX, sizeY] = gfx2.textSize(text);
+  sizeX += pad * 2;
+  sizeY += pad * 2;
+
+  gfx2.color(modSettings.bgColour.value);
+  gfx2.fillRect(0, 0, sizeX, sizeY);
+
+  gfx2.color(modSettings.textColour.value);
+  gfx2.text(pad, pad, text);
 };
