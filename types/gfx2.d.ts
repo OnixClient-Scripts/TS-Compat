@@ -9,7 +9,7 @@ declare namespace gfx2 {
    * Changes the color of what will be rendered
    * @param {Setting | ColorProperties} setting client color(pls or u crash) setting
    */
-  function color(setting: Setting | ColorProperties): void;
+  function color(setting: ColorSetting | ColorProperties): void;
 
   /**
    * Changes the color of what will be rendered
