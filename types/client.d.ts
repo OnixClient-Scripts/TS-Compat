@@ -175,6 +175,7 @@ declare interface BaseSetting<SettingType, Type extends number> {
   saveName: string;
   value: SettingType;
   visible: boolean;
+  parent: Module | VisualModule | ScriptingModule;
 }
 
 declare interface AirSetting extends BaseSetting<number, 100> {}
