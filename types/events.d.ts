@@ -112,14 +112,10 @@ declare namespace event {
    * end)
    * ```
    * 
-   * @param eventName string | '"KeyboardInput", function(key, down)\n\t\nend' | '"MouseInput", function(button, down)\n\t\nend' | '"ChatMessageAdded", function(message, username, type, xuid)\n\t\nend' | '"LocalDataReceived", function(uuid, content)\n\t\nend' | '"ConfigurationSaved", function()\n\tlocal data = {}\n\t\n\treturn data\nend' | '"ConfigurationLoaded", function(data)\n\t\nend' | '"LocalServerUpdate", function()\n\t\nend' | '"BlockChanged", function(x, y, z, newBlock, oldBlock)\n\t\nend' | '"TitleChanged", function(text, titleType)\n\t\nend' Name of the event to listen to
-   * @param handler function Function that will handle the event
+   * @param {string} eventName | '"KeyboardInput", function(key, down)\n\t\nend' | '"MouseInput", function(button, down)\n\t\nend' | '"ChatMessageAdded", function(message, username, type, xuid)\n\t\nend' | '"LocalDataReceived", function(uuid, content)\n\t\nend' | '"ConfigurationSaved", function()\n\tlocal data = {}\n\t\n\treturn data\nend' | '"ConfigurationLoaded", function(data)\n\t\nend' | '"LocalServerUpdate", function()\n\t\nend' | '"BlockChanged", function(x, y, z, newBlock, oldBlock)\n\t\nend' | '"TitleChanged", function(text, titleType)\n\t\nend' Name of the event to listen to
+   * @param {function} handler Function that will handle the event
    * @return nil
    * function event.listen(eventName, handler) end
    */
   function listen<Name extends keyof Events>(eventName: Name, handler: Events[Name]): void
 }
-
-//@class event
-//event = {}
-

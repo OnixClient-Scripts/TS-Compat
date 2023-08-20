@@ -13,6 +13,11 @@ declare let description: string;
 /** If this is true, you can render graphics using gfx or gfx2 everywhere. This means inside the inventory, in the pause menu, etc. */
 declare let renderEverywhere: boolean;
 
+declare let positionX: number;
+declare let positionY: number;
+declare let sizeX: number;
+declare let sizeY: number;
+
 declare let update: (this: void, deltaTime: number) => void;
 declare let render: (this: void, deltaTime: number) => void;
 declare let render2: (this: void, deltaTime: number) => void;

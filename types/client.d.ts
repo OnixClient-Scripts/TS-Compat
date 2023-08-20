@@ -1,39 +1,35 @@
-/**
- * @class Waypoint
- * @field x integer The x position of the waypoint
- * @field y integer The y position of the waypoint
- * @field z integer The z position of the waypoint
- * @field name string The name of the waypoint
- * @field dimensionId integer The dimension id the waypoint is for
- */
-declare class Waypoint {
-  public x: number;
-  public y: number;
-  public z: number;
-  public name: string;
-  public dimensionId: number;
+declare interface Waypoint {
+  /** The x position of the waypoint */
+  x: number;
+  /** The y position of the waypoint */
+  y: number;
+  /** The z position of the waypoint */
+  z: number;
+  /** The name of the waypoint */
+  name: string;
+  /** The dimension id the waypoint is for */
+  dimensionId: number;
 }
 
 /**
  * @class Waypoints
  * @noSelf
  */
-declare class Waypoints {
-
+declare interface Waypoints {
   /**
    * Gets the list of waypoints
    * @return {Waypoint[]}
    */
-  public get(): Waypoint[];
+  get(): Waypoint[];
 
   /**
    * Adds a waypoint
-   * @param x integer The x position of the waypoint
-   * @param y integer The y position of the waypoint
-   * @param z integer The z position of the waypoint
-   * @param name string The name of the waypoint
+   * @param {number} x The x position of the waypoint
+   * @param {number} y The y position of the waypoint
+   * @param {number} z The z position of the waypoint
+   * @param {string} name The name of the waypoint
    */
-  public add(x: number, y: number, z: number, name: string): void;
+  add(x: number, y: number, z: number, name: string): void;
 
   /**
    * Adds a waypoint
@@ -44,195 +40,202 @@ declare class Waypoints {
    * @param dimensionId integer In what dimension is the mew waypoint
    * @return boolean added If the waypoint has been added or not
    */
-  public add(x: number, y: number, z: number, name: string, dimensionId: number): boolean;
+  add(x: number, y: number, z: number, name: string, dimensionId: number): boolean;
 
   /**
    * Removes a waypoint by its name
-   * @param name string The name of the waypoint to remove
-   * @return boolean added If the waypoint has been removed or not
-
-   * Removes a waypoint by its position
-   * @param x integer The x position of the waypoint to remove
-   * @param y integer The y position of the waypoint to remove
-   * @param z integer The z position of the waypoint to remove
-   * @return boolean added If the waypoint has been removed or not
+   * @param {string} name The name of the waypoint to remove
+   * @returns {boolean} If the waypoint has been removed or not
    */
+  remove(name: string): boolean;
 
-  public remove(...args: [name: string] | [x: number, y: number, z: number]): boolean;
+  /**
+   * Removes a waypoint by its position
+   * @param {number} x The x position of the waypoint to remove
+   * @param {number} y The y position of the waypoint to remove
+   * @param {number} z The z position of the waypoint to remove
+   * @returns {boolean} If the waypoint has been removed or not
+   */
+  remove(x: number, y: number, z: number): boolean;
 
   /** Saves the waypoint list to file*/
-  public save(): void;
+  save(): void;
   /** Loads the waypoint list to file*/
-  public load(): void;
+  load(): void;
 
   /** Clears all waypoints*/
-  public clear(): void;
+  clear(): void;
 }
 
-/**
- * @class ClientConfig
- * @field name string The name of the config
- * @field exists boolean If this config exists on disk
- */
-declare class ClientConfig {
-  public name: string;
-  public exists: boolean;
+declare interface ClientConfig {
+  /** The name of the config */
+  name: string;
+  /** If this config exists on disk */
+  exists: boolean;
 }
 
-/**
- * @class ConfigManager
- */
-declare class ConfigManager {
+declare interface ConfigManager {
   /**
    * Gets a config from its name
    * @param name string The name
    * @return ClientConfig clientConfig The config you wanted (check if it exists if thats important)
    */
-  public get(name: string): ClientConfig;
+  get(name: string): ClientConfig;
 
   /**
    * Gets the active config (Could differ from default)
    * @return {ClientConfig} clientConfig The active config
    */
-  public getActive(): ClientConfig;
+  getActive(): ClientConfig;
 
   /**
    * Gets the default config (the one that will be loaded on inject)
    * @return {ClientConfig} clientConfig The default config
    */
-  public getDefault(): ClientConfig;
+  getDefault(): ClientConfig;
 
   /**
    * Sets the default config (the one that will be loaded on inject)
    * @param config ClientConfig The config to set as default
    */
-  public setDefault(config: ClientConfig): void;
+  setDefault(config: ClientConfig): void;
 
   /**
    * Checks to see if a config is the default one or not
    * @param config ClientConfig The config you want to know if its the default one or not
    */
-  public isDefault(config: ClientConfig): void;
+  isDefault(config: ClientConfig): void;
 
   /**
    * Checks to see if a config is the active one or not
    * @param config ClientConfig The config you want to know if its the active one or not
    */
-  public isActive(config: ClientConfig): void;
+  isActive(config: ClientConfig): void;
 
   /**
    * Gets a list of client configs
    * @return ClientConfig[] clientConfig List of existing configs at the time of the request
    */
-  public list(): ClientConfig[];
+  list(): ClientConfig[];
 
   /**
    * Deletes a config
    * @param config ClientConfig the config to delete
    */
-  public delete(config: ClientConfig): void;
+  delete(config: ClientConfig): void;
 
   /**
    * Creates a new config with default settings on everything
    * @param config ClientConfig Deletes a config
    */
-  public new(config: ClientConfig): void;
+  ["new"]: (config: ClientConfig) => void;
 
   /**
    * Saves the current config to a config
    * @param config ClientConfig The config to save into
    */
-  public save(config: ClientConfig): void;
+  save(config: ClientConfig): void;
 
   /**
    * Loads a config
    * @param config ClientConfig The config to load
    */
-  public load(config: ClientConfig): void;
+  load(config: ClientConfig): void;
 }
 
-/**
- * @class Vector2
- * @field x number
- * @field y number
- */
-declare class Vector2 {
-  public x: number;
-  public y: number;
+declare interface Vector2 {
+  x: number;
+  y: number;
 }
 
 /**
  * @class ColorSetting
- * @field r number The amount of Red from a range of 0 to 1
- * @field g number The amount of Green from a range of 0 to 1
- * @field b number The amount of Blue from a range of 0 to 1
- * @field a number The amount of Opacity from a range of 0 to 1
- * @field alphaVisible boolean alphaVisible Should the opacity slider be availible
- * @field rainbow boolean Is this color rainbow
- * @field rainbowSpeed number The speed of the rainbow effect (default=0.003)
  */
-declare class ColorSetting {
-  public r: number;
-  public g: number;
-  public b: number;
-  public a: number;
-  public alphaVisible: boolean;
-  public rainbow: boolean;
-  public rainbowSpeed: number;
+declare interface ColorProperties {
+  /** The amount of Red from a range of 0 to 1 */
+  r: number;
+  /** The amount of Green from a range of 0 to 1 */
+  g: number;
+  /** The amount of Blue from a range of 0 to 1 */
+  b: number;
+  /** The amount of Opacity from a range of 0 to 1 */
+  a: number;
+  /** Should the opacity slider be availible */
+  alphaVisible: boolean;
+  /** Is this color rainbow */
+  rainbow: boolean;
+  /** The speed of the rainbow effect (default=0.003) */
+  rainbowSpeed: number;
 }
 
-/**
- * @class Setting
- * @field type integer
- * @field name string The display name of the setting
- * @field saveName string The name used to save/load this Setting, no spaces
- * @field visible boolean Should show in the ui
- * @field value boolean|integer|number|Vector2|ColorSetting The value of the setting
- * @field default boolean|integer|number|Vector2|ColorSetting The default value of the setting
- * @field min integer|number|Vector2|nil Minimum value of the setting
- * @field max integer|number|Vector2|nil Maximum value of the setting
- * @field scale number The scale of info settings
- * @field parent Module the parent module
- * @field enumValues table[] table of tables, e.g. { {value, name}, {value2, name2} }
- */
-declare class Setting {
-  public type: number;
-  public name: string;
-  public saveName: string;
-  public visible: boolean;
-  public value: boolean | number | Vector2 | ColorSetting;
-  public default: boolean | number | Vector2 | ColorSetting;
-  public min: number | Vector2 | null;
-  public max: number | Vector2 | null;
-  public scale: number;
-  public parent: Module;
-  public enumValues: [number, string][];
+declare interface BaseSetting<SettingType, Type extends number> {
+  readonly type: Type;
+  readonly default: SettingType;
+  name: string;
+  saveName: string;
+  value: SettingType;
+  visible: boolean;
 }
 
-/**
- * @class Module
- * @field name string The name of the module
- * @field description string The description of the module
- * @field isVisual boolean if the module is a VisualModule
- * @field isScript boolean if the module is a ScriptingModule
- * @field visible boolean if the module is visible in the clickgui
- * @field enabled boolean [you can set] if the module is enabled
- * @field settings Setting[] A list with all the module's settings
- */
-declare class Module {
-  public name: string;
-  public description: string;
-  public isVisual: boolean;
-  public isScript: boolean;
-  public visible: boolean;
-  public enabled: boolean;
-  public settings: Setting[];
+declare interface AirSetting extends BaseSetting<number, 100> {}
+declare interface BoolSetting extends BaseSetting<boolean, 1> {}
+declare interface CategorySetting extends BaseSetting<boolean, 104> {}
+declare interface ColorSetting extends BaseSetting<ColorProperties, 7> {}
+declare interface EnumSetting extends BaseSetting<number, 10> {
+  enumValues: [number, string][];
+}
+declare interface FloatSetting extends BaseSetting<number, 3> {
+  min: number;
+  max: number;
+}
+declare interface FunctionSetting {
+  readonly type: 102;
+  name: string;
+  saveName: string;
+  visible: boolean;
+}
+declare interface InfoSetting extends BaseSetting<string, 101> {
+  scale: number;
+}
+declare interface IntSetting extends BaseSetting<number, 2> {
+  min: number;
+  max: number;
+}
+declare interface KeybindSetting extends BaseSetting<number, 4> {}
+declare interface TextboxSetting extends BaseSetting<string, 9> {}
+declare interface TitleSetting extends BaseSetting<string, 101> {}
+
+declare type Setting =
+  | AirSetting
+  | BoolSetting
+  | CategorySetting
+  | ColorProperties
+  | EnumSetting
+  | FloatSetting
+  | FunctionSetting
+  | InfoSetting
+  | IntSetting
+  | KeybindSetting
+  | TextboxSetting
+  | TitleSetting;
+
+declare interface BaseModule {
+  name: string;
+  description: string;
+  visible: boolean;
+  enabled: boolean;
+  settings: Setting[];
 
   /**
    * Remove a setting from the mod
    * @param {Setting} setting the setting to remove from the mod
    */
-  public removeSetting(this: void, setting: Setting): void;
+  removeSetting(this: void, setting: Setting): void;
+}
+
+declare interface Module extends BaseModule {
+  isVisual: false;
+  isScript: false;
 }
 
 /**
@@ -242,11 +245,13 @@ declare class Module {
  * @field relativepos Vector2 The relative position of the module (relative from anchor position)
  * @field anchor 0 = Invalid, 1 = Top Left, 2 = Top Right, 3 = Bottom Left, 4 = Bottom Right
  */
-declare class VisualModule extends Module {
-  public size: Vector2;
-  public pos: Vector2;
-  public relativepos: Vector2;
-  public anchor: number;
+declare interface VisualModule extends BaseModule {
+  isVisual: true;
+  isScript: false;
+  size: Vector2;
+  pos: Vector2;
+  relativepos: Vector2;
+  anchor: number;
 }
 
 /**
@@ -256,11 +261,13 @@ declare class VisualModule extends Module {
  * @field size Vector2 The size of the module
  * @field pos Vector2 The position of the module
  */
-declare class ScriptingModule extends Module {
-  public movable: boolean;
-  public scale: number;
-  public size: Vector2;
-  public pos: Vector2;
+declare interface ScriptingModule extends BaseModule {
+  isVisual: boolean;
+  isScript: true;
+  movable: boolean;
+  scale: number;
+  size: Vector2;
+  pos: Vector2;
 }
 
 /**
@@ -275,42 +282,40 @@ declare namespace client {
 
   /**
    * Sends a client notification
-   * @param text string The text in the notification
+   * @param {string} text The text in the notification
    */
   function notification(text: string): void;
 
   /**
    * Gets the game's language
-   * @return string languageCode The language code, example: en_US
+   * @returns {string} The language code, example: en_US
    */
   function language(): string;
 
   /**
    * Executes a client command, do not include the prefix
    * You may use the execute command to do minecraft commands
-   * Example: client.execute("execute /say imbald")
+   * Example: client.execute("execute /say imbald");
    * @param {string} command The command without the prefix
    */
   function execute(command: string): void;
 
   /**
    * Gets the waypoints
-   * @return Waypoints
+   * @returns {Waypoints}
    */
   function waypoints(): Waypoints;
 
   /**
    * Gets the config manager that can do various config things
-   * @return ConfigManager configManager The client config manager
-   * Gets the config manager that can do various config things
    * @param {boolean} scripting (default: false) Get the scripting version of the Config Manager?
-   * @return {ConfigManager} configManager The client config manager
+   * @return {ConfigManager} The client config manager
    */
   function getConfigManager(scripting?: boolean): ConfigManager;
 
   /**
    * Gets a list of all the modules in the client
-   * @return Module[] | VisualModule[] | ScriptingModule[]
+   * @returns {Module[] | VisualModule[] | ScriptingModule[]}
    */
-  function modules(): (Module | VisualModule | ScriptingModule)[];
+  function modules(): Module[] | VisualModule[] | ScriptingModule[];
 }

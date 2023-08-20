@@ -1,29 +1,27 @@
-//@meta
-
-//@class gfx
-//gfx = {}
-
-interface Item {}
-
 /** @noSelf */
 declare namespace gfx {
-  //Sets the drawing color, values range from 0 to 255
-  //Gfx drawing functions will use this color
-  //@param r number red
-  //@param g number green
-  //@param b number blue
+  /**
+   * Sets the drawing color, values range from 0 to 255
+   * Gfx drawing functions will use this color
+   * @param {number} r red
+   * @param {number} g green
+   * @param {number} b blue
+   */
   function color(r: number, g: number, b: number): void;
 
-  //Sets the texture drawing color, values range from 0 to 255
-  //Gfx texture drawing functions will tint using this color
-  //@param r number red
-  //@param g number green
-  //@param b number blue
+  /**
+   * Sets the texture drawing color, values range from 0 to 255
+   * Gfx texture drawing functions will tint using this color
+   * @param {number} r red
+   * @param {number} g green
+   * @param {number} b blue
+   */
   function tcolor(r: number, g: number, b: number): void;
 
-  //Sets if the 3D rendering should render trough blocks
-  //@param phaseTroughBlocks boolean red
-  //@return nil
+  /**
+   * Sets if the 3D rendering should render trough blocks
+   * @param {boolean} phaseTroughBlocks red
+   */
   function renderBehind(phaseTroughBlocks: boolean): void;
 
   //Sets the drawing color, values range from 0 to 255
@@ -118,7 +116,7 @@ declare namespace gfx {
   //@param x number The position X
   //@param y number The position Y
   //@param item Item The item to render
-  function item(x: number, y: number, item: Item): void;
+  function item(x: number, y: number, item: player.Item): void;
 
   //Renders an Item
   //@param x number The position X
