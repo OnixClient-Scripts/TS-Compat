@@ -13,7 +13,7 @@ declare interface Block {
   /** The name that would be used in /setblock */
   readonly name: string;
   /** The block state */
-  readonly state: { [key: string]: any }
+  readonly state: table;
   /** Unique hash for the block (not including state) */
   readonly hash: number;
 }
