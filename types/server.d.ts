@@ -1,88 +1,83 @@
-//@class server
-//server = {}
-
-/**
-   * @class Objective
-   * @field name string The name of the objective
-   * @field displayName string The display/pretty name of the objective
-   * @field scores table The scores, keys are the name of the holder and the value is the score
-   */
-declare class Objective {
-  public name: string;
-  public displayName: string;
-  public scores: table;
+declare interface Objective {
+  /** The name of the objective */
+  name: string;
+  /** The display/pretty name of the objective */
+  displayName: string;
+  /** The scores, keys are the name of the holder and the value is the score */
+  scores: table;
 }
 
-/**
- * @class DisplayObjective : Objective
- * @field isDescendingOrder boolean If the objective is sorted in descending order (big boy first)
- */
-declare class DisplayObjective extends Objective {
-  public isDescendingOrder: boolean;
+declare interface DisplayObjective extends Objective {
+  /** If the objective is sorted in descending order (big boy first) */
+  isDescendingOrder: boolean;
 }
 
-declare class Scoreboard {
+/** @noSelf */
+declare interface Scoreboard {
   /**
    * Gives you the display objective for that location
-   * @param place "sidebar" | "belowname" | "list"
+   * @param {"sidebar" | "belowname" | "list"} place
+   * @returns {DisplayObjective} The display objective
    */
-  public getDisplayObjective(place: "sidebar" | "belowname" | "list"): DisplayObjective;
+  getDisplayObjective(place: "sidebar" | "belowname" | "list"): DisplayObjective;
 
   /**
    * Gives you the display objective for that location
    * Note: that its not it's not guaranteed you will get anything beyond the display ones.
-   * @param name The name of the objective (not the display name)
-   * @returns {Objective} objective The objective or nil if it was not found
+   * @param {string} name The name of the objective (not the display name)
+   * @returns {Objective} The objective or nil if it was not found
    */
-  public getObjective(name: string): Objective | void;
+  getObjective(name: string): Objective | void;
 
   /**
    * Gives you the display objective for that location
    * Note: that its not it's not guaranteed you will get anything beyond the display ones.
-   * @returns {Objective[]} objectives The objectives
+   * @returns {Objective[]} The objectives
    */
-  public getObjectives(): Objective[];
+  getObjectives(): Objective[];
 
   /**
    * Gives you the display objective for that location
    * Note: that its not it's not guaranteed you will get anything beyond the display ones.
    * @returns {string[]} objectives The objective names
    */
-  public getObjectiveNames(): string[];
+  getObjectiveNames(): string[];
 }
 
 declare namespace server {
   /**
    * The current ip the user is connected to
-   * @returns {string} ip The current ip the user is connected to
+   * @returns {string} The current ip the user is connected to
    */
   function ipConnected(): string;
 
   /**
    * The ip that you used to join the server
-   * @returns {string} ip The ip used to join the server
+   * @returns {string} The ip used to join the server
    */
   function ip(): string;
 
   /**
    * The port
-   * @returns {number} integer port The current server port
+   * @returns {number} The current server port
    */
   function port(): number;
 
   /**
    * The name of the world (whats in top right in pause screen)
-   * @returns {string} name The world name
+   * @returns {string} The world name
    */
   function worldName(): string;
 
   /**
    * The name of everyone in the pause menu
    * example of usage:
-   * for _, playerName in pairs(server.players()) do
-   *
-   * end
-   * @returns {string[]} playernames The name of everybody in the playerlist (same as pause menu)
+   * ```ts
+   * for (const playerName of server.players()) {
+   *   // ...
+   * }
+   * ```
+   * @returns {string[]} The name of everybody in the playerlist (same as pause menu)
    */
   function players(): string[];
 

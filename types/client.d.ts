@@ -11,14 +11,11 @@ declare interface Waypoint {
   dimensionId: number;
 }
 
-/**
- * @class Waypoints
- * @noSelf
- */
+/** @noSelf */
 declare interface Waypoints {
   /**
    * Gets the list of waypoints
-   * @return {Waypoint[]}
+   * @returns {Waypoint[]}
    */
   get(): Waypoint[];
 
@@ -33,12 +30,12 @@ declare interface Waypoints {
 
   /**
    * Adds a waypoint
-   * @param x integer The x position of the new waypoint
-   * @param y integer The y position of the new waypoint
-   * @param z integer The z position of the new waypoint
-   * @param name string The name of the new waypoint
-   * @param dimensionId integer In what dimension is the mew waypoint
-   * @return boolean added If the waypoint has been added or not
+   * @param {number} x The x position of the new waypoint
+   * @param {number} y The y position of the new waypoint
+   * @param {number} z The z position of the new waypoint
+   * @param {string} name The name of the new waypoint
+   * @param {number} dimensionId In what dimension is the mew waypoint
+   * @returns {boolean} If the waypoint has been added or not
    */
   add(x: number, y: number, z: number, name: string, dimensionId: number): boolean;
 
@@ -235,50 +232,71 @@ declare interface BaseModule {
 }
 
 declare interface Module extends BaseModule {
+  /** if the module is a VisualModule */
   isVisual: false;
+  /** if the module is a TextualModule */
+  isTextual: false;
+  /** if the module is a ScriptingModule */
   isScript: false;
 }
-
-/**
- * @class VisualModule : Module
- * @field size Vector2 The size of the module
- * @field pos Vector2 The position of the module
- * @field relativepos Vector2 The relative position of the module (relative from anchor position)
- * @field anchor 0 = Invalid, 1 = Top Left, 2 = Top Right, 3 = Bottom Left, 4 = Bottom Right
- */
 declare interface VisualModule extends BaseModule {
+  /** if the module is a VisualModule */
   isVisual: true;
+  /** if the module is a TextualModule */
+  isTextual: false;
+  /** if the module is a ScriptingModule */
   isScript: false;
+  /** The size of the module */
   size: Vector2;
+  /** The position of the module */
   pos: Vector2;
+  /** The relative position of the module (relative from anchor position) */
   relativepos: Vector2;
-  anchor: number;
+  /** 0 = Invalid, 1 = Top Left, 2 = Top Right, 3 = Bottom Left, 4 = Bottom Right */
+  anchor: 0 | 1 | 2 | 3 | 4;
 }
 
-/**
- * @class ScriptingModule : Module
- * @field movable boolean If the module is movable
- * @field scale number The scale of the module
- * @field size Vector2 The size of the module
- * @field pos Vector2 The position of the module
- */
-declare interface ScriptingModule extends BaseModule {
-  isVisual: boolean;
-  isScript: true;
-  movable: boolean;
-  scale: number;
+declare interface TextualModule extends BaseModule {
+  /** if the module is a VisualModule */
+  isVisual: false;
+  /** if the module is a TextualModule */
+  isTextual: true;
+  /** if the module is a ScriptingModule */
+  isScript: false;
+  /** The text of the module */
+  text: string;
+  /** The size of the module */
   size: Vector2;
+  /** The position of the module */
+  pos: Vector2;
+  /** The relative position of the module (relative from anchor position) */
+  relativepos: Vector2;
+  /** 0 = Invalid, 1 = Top Left, 2 = Top Right, 3 = Bottom Left, 4 = Bottom Right */
+  anchor: 0 | 1 | 2 | 3 | 4;
+}
+
+declare interface ScriptingModule extends BaseModule {
+  /** if the module is a VisualModule */
+  isVisual: boolean;
+  /** if the module is a TextualModule */
+  isTextual: boolean;
+  /** if the module is a ScriptingModule */
+  isScript: true;
+  /** If the module is movable */
+  movable: boolean;
+  /** The scale of the module */
+  scale: number;
+  /** The size of the module */
+  size: Vector2;
+  /** The position of the module */
   pos: Vector2;
 }
 
-/**
- * @class client
- * @field version string The client version
- * @field mcversion string The minecraft version
- * @noSelf
- */
+/** @noSelf */
 declare namespace client {
+  /** The client version */
   const version: string;
+  /** The minecraft version */
   const mcversion: string;
 
   /**
