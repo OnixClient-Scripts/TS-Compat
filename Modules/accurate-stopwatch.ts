@@ -1,8 +1,8 @@
 /**
  * Made by Tom (aka Jerry)
  */
-name = "Stopwatch";
-description = "A simple stopwatch for timing things.";
+name = "Accurate stopwatch";
+description = "A simple stopwatch, millisecond-precise, for timing things.";
 
 positionX = 0;
 positionY = 0;
@@ -14,9 +14,10 @@ const modSettings = {
   stopKey: client.settings.addNamelessKeybind("Pause/Stop", 0),
   resetKey: client.settings.addNamelessKeybind("Reset", 0),
   showNotifs: client.settings.addNamelessBool("Show notifications", true),
-  bgColour: client.settings.addNamelessColor("Background colour", [0, 0, 0, 0.5]),
+  bgColour: client.settings.addNamelessColor("Background colour", [0, 0, 0, 128]),
   textColour: client.settings.addNamelessColor("Text colour", [255, 255, 255]),
   bgPadding: client.settings.addNamelessInt("Padding", 0, 20, 2),
+  //pauseOnMenu: client.settings.addNamelessBool("Pause the stopwatch when in the pause menu or loading terrain menu", true),
 };
 
 let timerRunning = false;
@@ -57,9 +58,13 @@ const timerText = (time: number) => {
   const seconds = Math.floor(time - Math.floor(time / 60) * 60 - Math.floor(time / 3600) * 3600);
   const milliseconds = Math.floor((time - Math.floor(time)) * 1000);
 
-  return `${time > 3600 ? (hours < 10 ? "0" + hours : hours) + "." : ""}${
-    time > 60 ? (minutes < 10 ? "0" + minutes : minutes) + "." : ""
-  }${(seconds < 10 ? "0" + seconds : seconds) + "."}${milliseconds === 0 ? "000" : milliseconds}`;
+  const text =
+    (time > 3600 ? (hours < 10 ? "0" + hours : hours) + "." : "") +
+    (time > 60 ? (minutes < 10 ? "0" + minutes : minutes) + "." : "") +
+    ((seconds < 10 ? "0" + seconds : seconds) + ".") +
+    (milliseconds === 0 ? "000" : milliseconds);
+
+  return text;
 };
 
 render2 = () => {
