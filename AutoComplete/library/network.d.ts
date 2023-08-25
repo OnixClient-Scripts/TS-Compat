@@ -1,4 +1,4 @@
-/** @noSelf */
+/** @noSelfInFile */
 declare const network: {
   /**
    * Does a web request to the specified url
