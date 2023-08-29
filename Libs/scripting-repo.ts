@@ -93,7 +93,7 @@ namespace scriptingRepo {
     workingDir = "RoamingState/OnixClient/Scripts";
 
     const filePath = url.replace(REPO_URL, "").substring(1);
-    console.log("Downloading...", { filePath, url });
+    //console.log("Downloading...", { filePath, url });
     network.fileget(filePath, url, id);
 
     workingDir = oldDir;
