@@ -6,8 +6,10 @@ declare namespace gfx {
    * @param {number} r red
    * @param {number} g green
    * @param {number} b blue
+   * @param {number?} a opacity
+
    */
-  function color(r: number, g: number, b: number): void;
+  function color(r: number, g: number, b: number, a?: number): void;
 
   /**
    * Sets the texture drawing color, values range from 0 to 255
@@ -15,8 +17,9 @@ declare namespace gfx {
    * @param {number} r red
    * @param {number} g green
    * @param {number} b blue
+   * @param {number?} a opacity
    */
-  function tcolor(r: number, g: number, b: number): void;
+  function tcolor(r: number, g: number, b: number, a?: number): void;
 
   /**
    * Sets if the 3D rendering should render trough blocks
@@ -25,20 +28,30 @@ declare namespace gfx {
   function renderBehind(phaseTroughBlocks: boolean): void;
 
   /**
-   * Sets the drawing color, values range from 0 to 255
-   * Gfx drawing functions will use this color
-   * @param {number} r red
-   * @param {number} g green
-   * @param {number} b blue
-   * @param {number} a Opacity
-   */
-  function color(r: number, g: number, b: number, a: number): void;
-
-  /**
    * The render origin (the player's eyes for first person)
-   * @returns {LuaMultiReturn<[number, number, number]>}
+   * @returns {LuaMultiReturn<[number, number, number]>} x, y, z
    */
   function origin(): LuaMultiReturn<[number, number, number]>;
+
+  /**
+   * Gets screen position from world position
+   * Getting nil means that the position is not on screen
+   * @param {number} x The world position X
+   * @param {number} y The world position Y
+   * @param {number} z The world position Z
+   * @returns {LuaMultiReturn<[number|null, number|null]>} The screen position X, The screen position Y
+   */
+  function worldToScreen(x: number, y: number, z: number): LuaMultiReturn<[number|null, number|null]>
+
+
+  /**
+   * Gets screen position from world position and gives you a table of number with a size of 2
+   * @param {number} x The world position X
+   * @param {number} y The world position Y
+   * @param {number} z The world position Z
+   * @return {number[]|null} x The screen position X
+   */
+function worldToScreen2(x: number, y: number, z: number): number[]|null
 
   /**
    * Renders a rectangle
@@ -502,6 +515,65 @@ declare namespace gfx {
   ): void;
 
   /**
+   * Renders a lot of textured quads
+   * This allows it to do it much quicker as it batches it instead of having one draw call per texture quad like tquad
+   * You can use parts of a texture with uv to have more textures in one draw
+   * You should sort the quads by color and texture to call this function less times, but with as much data as possible each time.
+   * quads is a table of table containing 20 numbers
+   * you have 4 corners, each corner has 5 numbers (x, y, z, uvx, uvy)
+   * exemple order: top left, bottom left, bottom right, top right
+   * @param {number[][]} quads The quads to render
+   * @param {string} texturePath the texture file (starting with "textures" will be taken from the resource pack otherwise data folder)
+   * @param {boolean|null} bothSides Should render both sides (would be visible from only one side if set to false/nil)
+   */
+  function tquadbatch(quads: number[][], texturePath: string, bothSides: boolean|null): void
+
+  /**
+   * Changes the lighting parameters for future gfx calls (3d only)
+   * @param {number} AreaStartX The starting X position of the area
+   * @param {number} AreaStartY The starting Y position of the area
+   * @param {number} AreaStartZ The starting Z position of the area
+   * @param {number} AreaEndX The ending X position of the area
+   * @param {number} AreaEndY The ending Y position of the area
+   * @param {number} AreaEndZ The ending Z position of the area
+   * @param {number?} minimumBrightness The minimum brightness (Must be an integer)
+   */
+  function setupLights(
+    AreaStartX: number,
+    AreaStartY: number,
+    AreaStartZ: number, 
+    AreaEndX: number, 
+    AreaEndY: number, 
+    AreaEndZ: number, 
+    minimumBrightness?: number): void
+
+    /**
+   * Changes the lighting parameters for future gfx calls (3d only)
+   * @param {number} AreaStartX The starting X position of the area
+   * @param {number} AreaStartY The starting Y position of the area
+   * @param {number} AreaStartZ The starting Z position of the area
+   * @param {number} AreaEndX The ending X position of the area
+   * @param {number} AreaEndY The ending Y position of the area
+   * @param {number} AreaEndZ The ending Z position of the area
+   * @param {number} CenterX  The center X of the area, you can uncenter it if it gives an effect you prefer
+   * @param {number} CenterY The center Y of the area, you can uncenter it if it gives an effect you prefer
+   * @param {number} CenterZ The center Z of the area, you can uncenter it if it gives an effect you prefer
+   * @param {number?} minimumBrightness The minimum brightness (Must be an integer)
+   */
+  function setupLights(
+    AreaStartX: number,
+    AreaStartY: number,
+    AreaStartZ: number, 
+    AreaEndX: number, 
+    AreaEndY: number, 
+    AreaEndZ: number, 
+    CenterX: number,
+    CenterY: number,
+    CenterZ: number,
+    minimumBrightness?: number): void
+
+
+  /**
    * @param {string} content Filepath to the .obj file
    * @param {boolean?} isFilepath use 'content' as filepath or obj file content
    * @return {userdata}
@@ -514,6 +586,8 @@ declare namespace gfx {
    * @param {string} texture
    */
   function objRender(mesh: any, texture?: string): void;
+
+  
 
   /**
    * Pushes transformation(s)

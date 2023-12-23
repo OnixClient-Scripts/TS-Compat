@@ -66,3 +66,7 @@ We have some improvements planned for this repository:
 
 - Improve the type definitions for built-in functions, and make them easier to maintain and update.
 - Simplify the setup process for an easier installation experience.
+
+In gfx:
+
+- Translate geometryLoad, geometryRender
