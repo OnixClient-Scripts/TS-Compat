@@ -89,6 +89,21 @@ declare const fs: {
    * @return {BinaryFile | void} The (hopefully) opened file
    */
   open(path: string, openmode: "w" | "r" | "a"): BinaryFile | void;
+
+  /**
+   * Opens a file to read/write data that can also be compressed
+   * If you dont skip the header putting anything that isn't 'store' or 'none' will ignore what you supply and read the header, otherwise it will trust you
+   * @param {string} path The path from Scripts/Data
+   * @param {"w" | "r" | "a" | nil} openmode  how to open the file, w is write mode, r is read mode, a is append(and it will add to an existing file or start), nil to open a memory stream
+   * @param {"lzma" | "deflate" | "gzip2" | "store" | "none"} compressionType The compression type to use, anything that isn't store or none will have compression enabled
+   * @param {0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9} compressionLevel The compression level to use, 0 is terrible compression, 1 is fastest, 6 is balanced, 9 is best compression
+   * @param {boolean} compressionHeader If you want to skip the header, if you do you can't read the file without knowing the compression type
+   */
+  open(path: string, 
+    openmode: "w" | "r" | "a", 
+    compressionType: "lzma" | "deflate" | "gzip2" | "store" | "none", 
+    compressionLevel: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9, 
+    compressionHeader: boolean): void
 }
 
 declare interface Stats {
