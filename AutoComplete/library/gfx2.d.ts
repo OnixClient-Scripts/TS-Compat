@@ -50,21 +50,10 @@ declare interface Gfx2Texture {
    * @param {number} r new red color value (0-255)
    * @param {number} g new green color value (0-255)
    * @param {number} b new blue color value (0-255)
+   * @param {number?} a new alpha value (0-255)
    * @diagnostic disable-next-line: duplicate-set-field
    */
-  setPixel(x: number, y: number, r: number, g: number, b: number): void;
-
-  /**
-   * Sets the color of a pixel in the texture, you must unload if you used it for changes to apply
-   * @param {number} x X position of the pixel to get
-   * @param {number} y Y position of the pixel to get
-   * @param {number} r new red color value (0-255)
-   * @param {number} g new green color value (0-255)
-   * @param {number} b new blue color value (0-255)
-   * @param {number} a new alpha value (0-255)
-   * @diagnostic disable-next-line: duplicate-set-field
-   */
-  setPixel(x: number, y: number, r: number, g: number, b: number, a: number): void;
+  setPixel(x: number, y: number, r: number, g: number, b: number, a?: number): void;
 
   /**
    * Saves the texture to a png file (for if you wana draw to it using setPixel)
@@ -92,9 +81,24 @@ declare namespace gfx2 {
    * @param {number} r 0-255 color code
    * @param {number} g 0-255 color code
    * @param {number} b 0-255 color code
-   * @param {number?} a 0-255 color code
+   * @param {number?} a opacity 0-255 color code
    */
   function color(r: number, g: number, b: number, a?: number): void;
+
+  /**
+   * Changes the tint color of images that will be rendered
+   * @param setting Setting client color(pls or u crash) setting
+   */
+  function tcolor(setting: ColorSetting | ColorProperties): void;
+
+    /**
+   * Changes the tint color of images that will be rendered
+   * @param {number} r 0-255 color code
+   * @param {number} g 0-255 color code
+   * @param {number} b 0-255 color code
+   * @param {number?} a opacity 0-255 color code
+   */
+    function tcolor(r: number, g: number, b: number, a?: number): void;
 
   /**
   * Gives you the size of the current render target
@@ -160,6 +164,23 @@ declare namespace gfx2 {
    * @param {number} lineWidth How large is the line
    */
   function drawRoundRect(x: number, y: number, width: number, height: number, radius: number, lineWidth: number): void;
+
+  /**
+   * Fills an elipse (circle but possibly wider)
+   * @param {number} centerX The X axis center position of the elipse
+   * @param {number} centerY The Y axis center position of the elipse
+   * @param {number} radius How big is the circle 
+   */
+  function fillElipse(centerX: number, centerY: number, radius: number): void;
+
+    /**
+   * Fills an elipse (circle but possibly wider)
+   * @param {number} centerX The X axis center position of the elipse
+   * @param {number} centerY The Y axis center position of the elipse
+   * @param {number} radiusX How Wide is the elipse
+   * @param {number} radiusY how High is the elipse
+   */
+    function fillElipse(centerX: number, centerY: number, radiusX: number, radiusY: number): void;
 
   /**
    * Draws an elipse (circle but possibly wider)
